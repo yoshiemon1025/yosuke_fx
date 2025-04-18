@@ -1,0 +1,27 @@
+name: Forex Entry Alert
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 毎5分ごとに実行
+  workflow_dispatch:       # 手動実行も可能にする
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install requests pandas numpy
+
+    - name: Run FX trade script
+      run: |
+        python forex_bot.py  # ← ここを実際のPythonファイル名に変える！
