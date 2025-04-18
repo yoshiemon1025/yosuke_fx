@@ -24,4 +24,4 @@ jobs:
 
     - name: Run FX trade script
       run: |
-        python forex_bot.py  # ← ここを実際のPythonファイル名に変える！
+        untitled3.py  # ← ここを実際のPythonファイル名に変える！
